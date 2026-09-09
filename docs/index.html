@@ -262,12 +262,27 @@
             cursor: pointer;
             font-size: 0.9em;
             margin-top: 10px;
+            margin-right: 5px;
             display: inline-block;
             font-weight: bold;
         }
 
         .copy-btn:hover {
             background: #764ba2;
+        }
+
+        .os-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .os-section h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -374,44 +389,62 @@ https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/
                     <h3>💻 Terminal Download Commands</h3>
                     
                     <div class="tabs">
-                        <button class="tab active" onclick="switchTab(event, 'linux')">🐧 Linux/Mac</button>
-                        <button class="tab" onclick="switchTab(event, 'windows')">🪟 Windows</button>
+                        <button class="tab active" onclick="switchTab(event, 'windows')">🪟 Windows</button>
+                        <button class="tab" onclick="switchTab(event, 'ubuntu')">🐧 Ubuntu/Linux</button>
                     </div>
                     
-                    <div id="linux" class="tab-content active">
-                        <p><strong>Using curl:</strong></p>
-                        <div class="code-block">
-# Download from cpp/ folder
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
+                    <div id="windows" class="tab-content active">
+                        <div class="os-section">
+                            <h4>Windows (PowerShell)</h4>
+                            <p><strong>Download from cpp/ folder:</strong></p>
+                            <div class="code-block">
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\" -OutFile \"hello_world.cpp\"')">📋 Copy</button>
 
-# Download from webprogramming/ folder
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
+                            <p style="margin-top: 15px;"><strong>Download from webprogramming/ folder:</strong></p>
+                            <div class="code-block">
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html" -OutFile "calculator.html"
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html\" -OutFile \"calculator.html\"')">📋 Copy</button>
 
-# Download from rdbms/ folder
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
-
-# Download multiple files
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/program1.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/program2.cpp
+                            <p style="margin-top: 15px;"><strong>Download from rdbms/ folder:</strong></p>
+                            <div class="code-block">
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql" -OutFile "create_table.sql"
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql\" -OutFile \"create_table.sql\"')">📋 Copy</button>
                         </div>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp')">📋 Copy C++ Example</button>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html')">📋 Copy Web Example</button>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql')">📋 Copy RDBMS Example</button>
                     </div>
 
-                    <div id="windows" class="tab-content">
-                        <p><strong>Using PowerShell (Recommended):</strong></p>
-                        <div class="code-block">
-# C++ Program
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
+                    <div id="ubuntu" class="tab-content">
+                        <div class="os-section">
+                            <h4>Ubuntu/Linux (Terminal)</h4>
+                            <p><strong>Download from cpp/ folder:</strong></p>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp')">📋 Copy</button>
 
-# Web File
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html" -OutFile "calculator.html"
+                            <p style="margin-top: 15px;"><strong>Download from webprogramming/ folder:</strong></p>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html')">📋 Copy</button>
 
-# SQL Query
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql" -OutFile "create_table.sql"
+                            <p style="margin-top: 15px;"><strong>Download from rdbms/ folder:</strong></p>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql')">📋 Copy</button>
+
+                            <p style="margin-top: 15px;"><strong>Download multiple programs at once:</strong></p>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp%0Acurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp%0Acurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp')">📋 Copy</button>
                         </div>
-                        <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\" -OutFile \"hello_world.cpp\"')">📋 Copy C++ Example</button>
                     </div>
                 </div>
             </div>
@@ -421,8 +454,14 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cp
                 <h2>🚀 Complete Workflow</h2>
                 
                 <div class="instructions">
-                    <h3>For C++ Programs</h3>
+                    <h3>For C++ Programs (Linux/Ubuntu)</h3>
                     <ol>
+                        <li><strong>Create a folder:</strong>
+                            <div class="code-block">
+mkdir my_programs
+cd my_programs
+                            </div>
+                        </li>
                         <li><strong>Download:</strong>
                             <div class="code-block">
 curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
@@ -435,8 +474,34 @@ g++ -o hello hello_world.cpp
                         </li>
                         <li><strong>Run:</strong>
                             <div class="code-block">
-./hello              # Linux/Mac
-hello.exe            # Windows
+./hello
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="instructions">
+                    <h3>For C++ Programs (Windows)</h3>
+                    <ol>
+                        <li><strong>Create a folder and navigate:</strong>
+                            <div class="code-block">
+mkdir my_programs
+cd my_programs
+                            </div>
+                        </li>
+                        <li><strong>Download (PowerShell):</strong>
+                            <div class="code-block">
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
+                            </div>
+                        </li>
+                        <li><strong>Compile:</strong>
+                            <div class="code-block">
+g++ -o hello hello_world.cpp
+                            </div>
+                        </li>
+                        <li><strong>Run:</strong>
+                            <div class="code-block">
+.\hello.exe
                             </div>
                         </li>
                     </ol>
@@ -445,20 +510,20 @@ hello.exe            # Windows
                 <div class="instructions">
                     <h3>For Web Programming</h3>
                     <ol>
-                        <li><strong>Download:</strong>
+                        <li><strong>Download (Linux/Ubuntu):</strong>
                             <div class="code-block">
 curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
                             </div>
                         </li>
                         <li><strong>Open in browser:</strong> Double-click the .html file</li>
-                        <li><strong>Edit:</strong> Open with any text editor (VS Code, Notepad++, etc.)</li>
+                        <li><strong>Edit:</strong> Open with any text editor (VS Code, Notepad++, nano, etc.)</li>
                     </ol>
                 </div>
 
                 <div class="instructions">
                     <h3>For RDBMS/SQL</h3>
                     <ol>
-                        <li><strong>Download:</strong>
+                        <li><strong>Download (Linux/Ubuntu):</strong>
                             <div class="code-block">
 curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
                             </div>
