@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ Programs Repository</title>
+    <title>Programs Repository - C++, Web, RDBMS</title>
     <style>
         * {
             margin: 0;
@@ -60,133 +60,81 @@
             font-size: 1.8em;
         }
         
-        .programs-grid {
+        .folder-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
-        
-        .program-card {
+
+        .folder-card {
             background: #f8f9fa;
             border-left: 5px solid #667eea;
             padding: 25px;
             border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
-        .program-card:hover {
+
+        .folder-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
-        
-        .program-card h3 {
-            color: #667eea;
-            margin-bottom: 8px;
-            font-size: 1.3em;
-            font-weight: 600;
+
+        .folder-card.cpp {
+            border-left-color: #ff6b6b;
         }
-        
-        .program-card p {
+
+        .folder-card.web {
+            border-left-color: #4ecdc4;
+        }
+
+        .folder-card.rdbms {
+            border-left-color: #ffd93d;
+        }
+
+        .folder-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .folder-card .emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .folder-card p {
             color: #666;
-            font-size: 0.95em;
-            margin-bottom: 15px;
-            flex-grow: 1;
             line-height: 1.6;
-        }
-        
-        .program-card .difficulty {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
             margin-bottom: 15px;
-            font-weight: bold;
         }
-        
-        .difficulty.easy {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .difficulty.medium {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .difficulty.hard {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        .download-path {
-            background: #e8f4f8;
+
+        .folder-card .types {
+            background: white;
             padding: 12px;
             border-radius: 5px;
-            margin-bottom: 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            color: #333;
-            word-break: break-all;
-            border-left: 3px solid #2196F3;
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-        }
-        
-        .btn {
-            flex: 1;
-            padding: 11px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
             font-size: 0.9em;
-            font-weight: bold;
-            transition: background 0.3s;
-            text-align: center;
-            display: inline-block;
+            color: #555;
+            margin-bottom: 15px;
+            border-left: 3px solid #ddd;
         }
-        
-        .btn-download {
+
+        .add-btn {
             background: #28a745;
             color: white;
-        }
-        
-        .btn-download:hover {
-            background: #218838;
-        }
-        
-        .btn-view {
-            background: #667eea;
-            color: white;
-        }
-        
-        .btn-view:hover {
-            background: #764ba2;
-        }
-        
-        .add-program-btn {
-            background: #667eea;
-            color: white;
-            padding: 12px 25px;
+            padding: 10px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 0.95em;
             font-weight: bold;
             transition: background 0.3s;
-            margin-bottom: 20px;
+            width: 100%;
         }
-        
-        .add-program-btn:hover {
-            background: #764ba2;
+
+        .add-btn:hover {
+            background: #218838;
         }
         
         .instructions {
@@ -237,70 +185,12 @@
             color: #0066cc;
         }
 
-        .terminal-command {
-            background: #333;
-            color: #00ff00;
-            padding: 12px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-            border: 1px solid #555;
-        }
-        
-        footer {
-            background: #f8f9fa;
-            padding: 25px;
-            text-align: center;
-            color: #666;
-            border-top: 1px solid #ddd;
-        }
-        
-        .github-link {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: background 0.3s;
-            font-weight: bold;
-        }
-        
-        .github-link:hover {
-            background: #764ba2;
-        }
-
-        .empty-state {
-            text-align: center;
-            color: #999;
-            padding: 30px;
-        }
-
-        .copy-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85em;
-            margin-top: 8px;
-            display: block;
-            width: 100%;
-            font-weight: bold;
-        }
-
-        .copy-btn:hover {
-            background: #764ba2;
-        }
-
         .tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
             border-bottom: 2px solid #ddd;
+            flex-wrap: wrap;
         }
 
         .tab {
@@ -326,123 +216,162 @@
         .tab-content.active {
             display: block;
         }
+
+        footer {
+            background: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .github-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+        
+        .github-link:hover {
+            background: #764ba2;
+        }
+
+        .folder-structure {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🚀 C++ Programs Repository</h1>
-            <p>Store, Share & Download Individual C++ Programs via Terminal</p>
+            <h1>🚀 Programs Repository</h1>
+            <p>C++, Web Programming & RDBMS - Download Exactly What You Need</p>
         </header>
         
         <div class="content">
-            <!-- Basic Programs Section -->
+            <!-- Overview Section -->
             <div class="section">
-                <h2>📖 Basic Programs</h2>
-                <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/basics" class="add-program-btn">+ Add New Program</a>
+                <h2>📁 Repository Structure</h2>
+                <p style="color: #333; line-height: 1.8; margin-bottom: 20px;">
+                    Organized into three main folders for different programming domains. 
+                    Download exactly what you need using terminal commands!
+                </p>
                 
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <h3>Hello World</h3>
-                        <span class="difficulty easy">Easy</span>
-                        <p>Simple program that prints "Hello, World!" to the console.</p>
-                        <div class="download-path">📁 basics/hello_world.cpp</div>
-                        <div class="button-group">
-                            <a href="https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp" class="btn btn-download" download>⬇️ Download</a>
-                            <a href="https://github.com/sukrithk829-commits/cpp-programs-website/blob/main/basics/hello_world.cpp" class="btn btn-view" target="_blank">👁️ View</a>
-                        </div>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp')">📋 Copy Terminal Command</button>
-                    </div>
-                    
-                    <div class="program-card">
-                        <h3>Variables</h3>
-                        <span class="difficulty easy">Easy</span>
-                        <p>Program demonstrating different data types and variables in C++.</p>
-                        <div class="download-path">📁 basics/variables.cpp</div>
-                        <div class="button-group">
-                            <a href="https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/variables.cpp" class="btn btn-download" download>⬇️ Download</a>
-                            <a href="https://github.com/sukrithk829-commits/cpp-programs-website/blob/main/basics/variables.cpp" class="btn btn-view" target="_blank">👁️ View</a>
-                        </div>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/variables.cpp')">📋 Copy Terminal Command</button>
-                    </div>
+                <div class="folder-structure">
+                    programs-repository/<br>
+                    ├── <strong style="color: #ff6b6b;">cpp/</strong>  📂 C++ Programs<br>
+                    │   ├── hello_world.cpp<br>
+                    │   ├── prime_numbers.cpp<br>
+                    │   └── ...more programs<br>
+                    ├── <strong style="color: #4ecdc4;">webprogramming/</strong>  📂 Web Files<br>
+                    │   ├── calculator.html<br>
+                    │   ├── index.html<br>
+                    │   └── ...more files<br>
+                    ├── <strong style="color: #ffd93d;">rdbms/</strong>  📂 SQL Queries<br>
+                    │   ├── create_table.sql<br>
+                    │   ├── complex_queries.sql<br>
+                    │   └── ...more queries<br>
+                    ├── docs/<br>
+                    │   └── index.html<br>
+                    └── README.md<br>
                 </div>
             </div>
-            
-            <!-- Control Flow Section -->
+
+            <!-- Folders Overview -->
             <div class="section">
-                <h2>🔄 Control Flow</h2>
-                <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/control_flow" class="add-program-btn">+ Add New Program</a>
+                <h2>📂 Program Folders</h2>
                 
-                <div class="programs-grid">
-                    <div class="program-card">
-                        <h3>Loops</h3>
-                        <span class="difficulty easy">Easy</span>
-                        <p>Examples of for, while, and do-while loops in C++.</p>
-                        <div class="download-path">📁 control_flow/loops.cpp</div>
-                        <div class="button-group">
-                            <a href="https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/loops.cpp" class="btn btn-download" download>⬇️ Download</a>
-                            <a href="https://github.com/sukrithk829-commits/cpp-programs-website/blob/main/control_flow/loops.cpp" class="btn btn-view" target="_blank">👁️ View</a>
+                <div class="folder-cards">
+                    <div class="folder-card cpp">
+                        <div class="emoji">🔴</div>
+                        <h3>C++ Programs</h3>
+                        <div class="types">
+                            <strong>File extension:</strong> .cpp<br>
+                            <strong>Folder:</strong> cpp/
                         </div>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/loops.cpp')">📋 Copy Terminal Command</button>
+                        <p>C++ programs including basic programs, data structures, algorithms, and object-oriented programming examples.</p>
+                        <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/cpp" class="add-btn">
+                            + Add C++ Program
+                        </a>
                     </div>
-                    
-                    <div class="program-card">
-                        <h3>Conditionals</h3>
-                        <span class="difficulty easy">Easy</span>
-                        <p>If-else statements and conditional logic examples.</p>
-                        <div class="download-path">📁 control_flow/conditionals.cpp</div>
-                        <div class="button-group">
-                            <a href="https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/conditionals.cpp" class="btn btn-download" download>⬇️ Download</a>
-                            <a href="https://github.com/sukrithk829-commits/cpp-programs-website/blob/main/control_flow/conditionals.cpp" class="btn btn-view" target="_blank">👁️ View</a>
+
+                    <div class="folder-card web">
+                        <div class="emoji">🌐</div>
+                        <h3>Web Programming</h3>
+                        <div class="types">
+                            <strong>File types:</strong> .html, .css, .js, .php<br>
+                            <strong>Folder:</strong> webprogramming/
                         </div>
-                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/conditionals.cpp')">📋 Copy Terminal Command</button>
+                        <p>Web development files including HTML pages, CSS stylesheets, JavaScript code, and PHP scripts.</p>
+                        <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/webprogramming" class="add-btn">
+                            + Add Web File
+                        </a>
+                    </div>
+
+                    <div class="folder-card rdbms">
+                        <div class="emoji">💾</div>
+                        <h3>RDBMS & SQL</h3>
+                        <div class="types">
+                            <strong>File extension:</strong> .sql<br>
+                            <strong>Folder:</strong> rdbms/
+                        </div>
+                        <p>Relational Database Management System files including SQL queries, schemas, and stored procedures.</p>
+                        <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/rdbms" class="add-btn">
+                            + Add SQL Query
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Algorithms Section -->
+            <!-- Download Programs Section -->
             <div class="section">
-                <h2>🔢 Algorithms</h2>
-                <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/algorithms" class="add-program-btn">+ Add New Program</a>
-                
-                <div class="programs-grid" id="algorithms-section">
-                    <div class="empty-state">
-                        <p>No programs added yet. Click "+ Add New Program" to start adding algorithms!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- OOP Section -->
-            <div class="section">
-                <h2>🏗️ Object-Oriented Programming</h2>
-                <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/oop" class="add-program-btn">+ Add New Program</a>
-                
-                <div class="programs-grid" id="oop-section">
-                    <div class="empty-state">
-                        <p>No programs added yet. Click "+ Add New Program" to start adding OOP concepts!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Structures Section -->
-            <div class="section">
-                <h2>🗂️ Data Structures</h2>
-                <a href="https://github.com/sukrithk829-commits/cpp-programs-website/new/main/data_structures" class="add-program-btn">+ Add New Program</a>
-                
-                <div class="programs-grid" id="ds-section">
-                    <div class="empty-state">
-                        <p>No programs added yet. Click "+ Add New Program" to start adding data structures!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Terminal Download Guide Section -->
-            <div class="section">
-                <h2>💻 Download Programs Using Terminal</h2>
+                <h2>⬇️ How to Download Programs</h2>
                 
                 <div class="instructions">
-                    <h3>🎯 Quick Download (Single Program)</h3>
-                    <p>Download any single program directly to your local machine using one command:</p>
+                    <h3>📖 Download URL Format</h3>
+                    <p>All programs follow this pattern:</p>
+                    <div class="code-block">
+https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/FOLDER/PROGRAM_NAME
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Replace:</strong></p>
+                    <ul>
+                        <li><strong>FOLDER:</strong> cpp, webprogramming, or rdbms</li>
+                        <li><strong>PROGRAM_NAME:</strong> the actual file name you want</li>
+                    </ul>
+                </div>
+
+                <div class="instructions">
+                    <h3>💻 Terminal Download Commands</h3>
                     
                     <div class="tabs">
                         <button class="tab active" onclick="switchTab(event, 'linux')">🐧 Linux/Mac</button>
@@ -450,212 +379,174 @@
                     </div>
                     
                     <div id="linux" class="tab-content active">
+                        <p><strong>Using curl:</strong></p>
                         <div class="code-block">
-# Example: Download hello_world.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
+# Download from cpp/ folder
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
 
-# Example: Download variables.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/variables.cpp
+# Download from webprogramming/ folder
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
 
-# Example: Download loops.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/loops.cpp
+# Download from rdbms/ folder
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
+
+# Download multiple files
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/program1.cpp
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/program2.cpp
                         </div>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp')">📋 Copy C++ Example</button>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html')">📋 Copy Web Example</button>
+                        <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql')">📋 Copy RDBMS Example</button>
                     </div>
 
                     <div id="windows" class="tab-content">
+                        <p><strong>Using PowerShell (Recommended):</strong></p>
                         <div class="code-block">
-# Using PowerShell (Windows 7+)
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp" -OutFile "hello_world.cpp"
+# C++ Program
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
 
-# Or using curl (Windows 10+)
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
+# Web File
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html" -OutFile "calculator.html"
 
-# Or using wget (if installed)
-wget https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
+# SQL Query
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql" -OutFile "create_table.sql"
                         </div>
-                    </div>
-
-                    <div class="info-box">
-                        <strong>💡 Pro Tip:</strong> Copy the "Copy Terminal Command" button on any program card above to copy the exact download command!
+                        <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\" -OutFile \"hello_world.cpp\"')">📋 Copy C++ Example</button>
                     </div>
                 </div>
+            </div>
 
+            <!-- Complete Workflow Section -->
+            <div class="section">
+                <h2>🚀 Complete Workflow</h2>
+                
                 <div class="instructions">
-                    <h3>📋 Program URL Structure</h3>
-                    <p>All programs follow this URL pattern:</p>
-                    <div class="code-block">
-https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/CATEGORY/program_name.cpp
-                    </div>
-                    <p><strong>Replace:</strong></p>
-                    <ul>
-                        <li><strong>CATEGORY</strong> = basics, control_flow, algorithms, oop, data_structures</li>
-                        <li><strong>program_name.cpp</strong> = the actual program file name</li>
-                    </ul>
-                </div>
-
-                <div class="instructions">
-                    <h3>🚀 Full Workflow Example</h3>
+                    <h3>For C++ Programs</h3>
                     <ol>
-                        <li>Open terminal/command prompt on your local machine</li>
-                        <li>Create a folder for your programs:
+                        <li><strong>Download:</strong>
                             <div class="code-block">
-mkdir my_cpp_programs
-cd my_cpp_programs
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
                             </div>
                         </li>
-                        <li>Download a single program using curl:
-                            <div class="code-block">
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
-                            </div>
-                        </li>
-                        <li>Compile the program:
+                        <li><strong>Compile:</strong>
                             <div class="code-block">
 g++ -o hello hello_world.cpp
                             </div>
                         </li>
-                        <li>Run the program:
+                        <li><strong>Run:</strong>
                             <div class="code-block">
-./hello                    # Linux/Mac
-hello.exe                  # Windows
+./hello              # Linux/Mac
+hello.exe            # Windows
                             </div>
                         </li>
                     </ol>
                 </div>
 
                 <div class="instructions">
-                    <h3>📥 Download Multiple Programs at Once</h3>
-                    <p><strong>Linux/Mac:</strong></p>
-                    <div class="code-block">
-# Download multiple files
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/variables.cpp
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/control_flow/loops.cpp
-
-# Or using a loop to download all from a category
-for file in hello_world variables; do
-    curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/$file.cpp
-done
-                    </div>
-                    <p><strong>Windows (PowerShell):</strong></p>
-                    <div class="code-block">
-# Download multiple files
-@("hello_world", "variables") | ForEach-Object {
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/$_.cpp" -OutFile "$_.cpp"
-}
-                    </div>
+                    <h3>For Web Programming</h3>
+                    <ol>
+                        <li><strong>Download:</strong>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
+                            </div>
+                        </li>
+                        <li><strong>Open in browser:</strong> Double-click the .html file</li>
+                        <li><strong>Edit:</strong> Open with any text editor (VS Code, Notepad++, etc.)</li>
+                    </ol>
                 </div>
 
                 <div class="instructions">
-                    <h3>🔄 Update Programs (Pull Latest Version)</h3>
-                    <p>If a program has been updated on GitHub, download it again:</p>
-                    <div class="code-block">
-curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/basics/hello_world.cpp
-                    </div>
-                    <p>The new version will replace the old one.</p>
+                    <h3>For RDBMS/SQL</h3>
+                    <ol>
+                        <li><strong>Download:</strong>
+                            <div class="code-block">
+curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
+                            </div>
+                        </li>
+                        <li><strong>Run in database client:</strong> MySQL Workbench, pgAdmin, SQL Server Management Studio, etc.</li>
+                        <li><strong>Execute the SQL query</strong> in your database management tool</li>
+                    </ol>
                 </div>
             </div>
 
-            <!-- How to Add Programs Section -->
+            <!-- Browse Programs Section -->
             <div class="section">
-                <h2>📝 How to Add Your Own Programs</h2>
+                <h2>📋 Browse All Programs</h2>
                 
-                <div class="instructions">
-                    <h3>✨ Method 1: Add via GitHub Website (Easiest)</h3>
-                    <ol>
-                        <li>Click the "+ Add New Program" button in any category above</li>
-                        <li>GitHub will open a file creation page</li>
-                        <li>In the filename field, enter: <strong>program_name.cpp</strong>
-                            <div class="info-box">
-                                Example: prime_numbers.cpp, fibonacci.cpp, etc.
-                            </div>
-                        </li>
-                        <li>Paste your C++ code in the editor</li>
-                        <li>Scroll down and click "Commit changes"</li>
-                        <li>Done! Your program is now available for download</li>
-                    </ol>
-                </div>
-
-                <div class="instructions">
-                    <h3>💻 Method 2: Add via Terminal (Git Clone)</h3>
-                    <ol>
-                        <li>Clone the repository:
-                            <div class="code-block">
-git clone https://github.com/sukrithk829-commits/cpp-programs-website.git
-cd cpp-programs-website
-                            </div>
-                        </li>
-                        <li>Create your program file:
-                            <div class="code-block">
-nano algorithms/prime_numbers.cpp
-                            </div>
-                        </li>
-                        <li>Write your C++ code and save</li>
-                        <li>Push to GitHub:
-                            <div class="code-block">
-git add algorithms/prime_numbers.cpp
-git commit -m "Add prime_numbers.cpp - Find primes from 1 to 100"
-git push origin main
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="instructions">
-                    <h3>📌 Naming Guidelines</h3>
-                    <ul>
-                        <li>Use lowercase with underscores: <strong>prime_numbers.cpp</strong></li>
-                        <li>Be descriptive: <strong>fibonacci_sequence.cpp</strong> (not just fib.cpp)</li>
-                        <li>Place in correct folder: algorithms, basics, oop, etc.</li>
-                    </ul>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <a href="https://github.com/sukrithk829-commits/cpp-programs-website/tree/main/cpp" 
+                       target="_blank" 
+                       class="github-link" 
+                       style="display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                        📂 C++ Programs Folder
+                    </a>
+                    <a href="https://github.com/sukrithk829-commits/cpp-programs-website/tree/main/webprogramming" 
+                       target="_blank" 
+                       class="github-link" 
+                       style="display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                        📂 Web Programming Folder
+                    </a>
+                    <a href="https://github.com/sukrithk829-commits/cpp-programs-website/tree/main/rdbms" 
+                       target="_blank" 
+                       class="github-link" 
+                       style="display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                        📂 RDBMS Folder
+                    </a>
                 </div>
             </div>
 
-            <!-- Reference Section -->
+            <!-- Quick Reference Section -->
             <div class="section">
                 <h2>📚 Quick Reference</h2>
                 
                 <div class="instructions">
-                    <h3>Commands Cheat Sheet</h3>
-                    <table style="width: 100%; border-collapse: collapse;">
+                    <h3>Folder & File Types</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
                         <tr style="background: #f0f4ff;">
-                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left; color: #667eea;">Task</th>
-                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left; color: #667eea;">Command (Linux/Mac)</th>
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left; color: #667eea;">Folder</th>
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left; color: #667eea;">File Types</th>
+                            <th style="border: 1px solid #ddd; padding: 12px; text-align: left; color: #667eea;">Examples</th>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid #ddd; padding: 12px;">Download single program</td>
-                            <td style="border: 1px solid #ddd; padding: 12px;"><code>curl -O URL</code></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>cpp/</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">.cpp</td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">hello_world.cpp, prime_numbers.cpp</td>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid #ddd; padding: 12px;">Compile</td>
-                            <td style="border: 1px solid #ddd; padding: 12px;"><code>g++ -o output program.cpp</code></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>webprogramming/</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">.html, .css, .js, .php</td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">calculator.html, style.css, script.js</td>
                         </tr>
                         <tr>
-                            <td style="border: 1px solid #ddd; padding: 12px;">Run program</td>
-                            <td style="border: 1px solid #ddd; padding: 12px;"><code>./output</code></td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 12px;">Clone repository</td>
-                            <td style="border: 1px solid #ddd; padding: 12px;"><code>git clone [repo-url]</code></td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid #ddd; padding: 12px;">Pull latest changes</td>
-                            <td style="border: 1px solid #ddd; padding: 12px;"><code>git pull origin main</code></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;"><strong>rdbms/</strong></td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">.sql</td>
+                            <td style="border: 1px solid #ddd; padding: 12px;">create_table.sql, queries.sql</td>
                         </tr>
                     </table>
+                </div>
+
+                <div class="instructions" style="margin-top: 20px;">
+                    <h3>Naming Convention</h3>
+                    <ul>
+                        <li>Use lowercase with underscores: <strong>prime_numbers.cpp</strong></li>
+                        <li>Be descriptive: <strong>student_management.sql</strong></li>
+                        <li>Include file extension: <strong>.cpp</strong>, <strong>.html</strong>, <strong>.sql</strong></li>
+                        <li>Store in appropriate folder only</li>
+                    </ul>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>💻 C++ Programs Repository - Download Exactly What You Need!</p>
-            <a href="https://github.com/sukrithk829-commits/cpp-programs-website" class="github-link">⭐ View on GitHub</a>
+            <p>💻 Programs Repository - C++, Web Programming & RDBMS</p>
+            <a href="https://github.com/sukrithk829-commits/cpp-programs-website" class="github-link">⭐ Visit Repository on GitHub</a>
         </footer>
     </div>
 
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(function() {
-                alert('Command copied to clipboard!');
+                alert('✅ Command copied to clipboard!');
             }, function(err) {
                 console.error('Failed to copy: ', err);
             });
