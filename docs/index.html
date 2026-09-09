@@ -121,6 +121,7 @@
         }
 
         .add-btn {
+            display: block;
             background: #28a745;
             color: white;
             padding: 10px 15px;
@@ -131,6 +132,8 @@
             font-weight: bold;
             transition: background 0.3s;
             width: 100%;
+            text-align: center;
+            text-decoration: none;
         }
 
         .add-btn:hover {
@@ -304,20 +307,20 @@
                 
                 <div class="folder-structure">
                     programs-repository/<br>
-                    ├── <strong style="color: #ff6b6b;">cpp/</strong>  📂 C++ Programs<br>
-                    │   ├── hello_world.cpp<br>
-                    │   ├── prime_numbers.cpp<br>
-                    │   └── ...more programs<br>
-                    ├── <strong style="color: #4ecdc4;">webprogramming/</strong>  📂 Web Files<br>
-                    │   ├── calculator.html<br>
-                    │   ├── index.html<br>
-                    │   └── ...more files<br>
-                    ├── <strong style="color: #ffd93d;">rdbms/</strong>  📂 SQL Queries<br>
-                    │   ├── create_table.sql<br>
-                    │   ├── complex_queries.sql<br>
-                    │   └── ...more queries<br>
+                    ├── <strong style="color: #ff6b6b;">cpp/</strong>&nbsp;&nbsp;📂 C++ Programs<br>
+                    │&nbsp;&nbsp;&nbsp;├── hello_world.cpp<br>
+                    │&nbsp;&nbsp;&nbsp;├── prime_numbers.cpp<br>
+                    │&nbsp;&nbsp;&nbsp;└── ...more programs<br>
+                    ├── <strong style="color: #4ecdc4;">webprogramming/</strong>&nbsp;&nbsp;📂 Web Files<br>
+                    │&nbsp;&nbsp;&nbsp;├── calculator.html<br>
+                    │&nbsp;&nbsp;&nbsp;├── index.html<br>
+                    │&nbsp;&nbsp;&nbsp;└── ...more files<br>
+                    ├── <strong style="color: #ffd93d;">rdbms/</strong>&nbsp;&nbsp;📂 SQL Queries<br>
+                    │&nbsp;&nbsp;&nbsp;├── create_table.sql<br>
+                    │&nbsp;&nbsp;&nbsp;├── complex_queries.sql<br>
+                    │&nbsp;&nbsp;&nbsp;└── ...more queries<br>
                     ├── docs/<br>
-                    │   └── index.html<br>
+                    │&nbsp;&nbsp;&nbsp;└── index.html<br>
                     └── README.md<br>
                 </div>
             </div>
@@ -395,24 +398,35 @@ https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/
                     
                     <div id="windows" class="tab-content active">
                         <div class="os-section">
-                            <h4>Windows (PowerShell)</h4>
+                            <h4>Windows (Command Prompt / CMD)</h4>
+                            <div class="info-box">
+                                <strong>Note:</strong> curl ships built into Command Prompt on Windows 10 (version 1803+) and Windows 11, so no extra install is needed. Just open <strong>cmd</strong> and run the commands below.
+                            </div>
                             <p><strong>Download from cpp/ folder:</strong></p>
                             <div class="code-block">
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
+curl -o hello_world.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
                             </div>
-                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\" -OutFile \"hello_world.cpp\"')">📋 Copy</button>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -o hello_world.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp')">📋 Copy</button>
 
                             <p style="margin-top: 15px;"><strong>Download from webprogramming/ folder:</strong></p>
                             <div class="code-block">
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html" -OutFile "calculator.html"
+curl -o calculator.html https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html
                             </div>
-                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html\" -OutFile \"calculator.html\"')">📋 Copy</button>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -o calculator.html https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/webprogramming/calculator.html')">📋 Copy</button>
 
                             <p style="margin-top: 15px;"><strong>Download from rdbms/ folder:</strong></p>
                             <div class="code-block">
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql" -OutFile "create_table.sql"
+curl -o create_table.sql https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql
                             </div>
-                            <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql\" -OutFile \"create_table.sql\"')">📋 Copy</button>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -o create_table.sql https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/rdbms/create_table.sql')">📋 Copy</button>
+
+                            <p style="margin-top: 15px;"><strong>Download multiple programs at once:</strong></p>
+                            <div class="code-block">
+curl -o hello_world.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
+curl -o prime_numbers.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp
+curl -o fibonacci.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -o hello_world.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\ncurl -o prime_numbers.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp\ncurl -o fibonacci.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp')">📋 Copy</button>
                         </div>
                     </div>
 
@@ -443,7 +457,7 @@ curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-websi
 curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp
 curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp
                             </div>
-                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp%0Acurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp%0Acurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp')">📋 Copy</button>
+                            <button class="copy-btn" onclick="copyToClipboard('curl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp\ncurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/prime_numbers.cpp\ncurl -O https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/fibonacci.cpp')">📋 Copy</button>
                         </div>
                     </div>
                 </div>
@@ -489,9 +503,9 @@ mkdir my_programs
 cd my_programs
                             </div>
                         </li>
-                        <li><strong>Download (PowerShell):</strong>
+                        <li><strong>Download (Command Prompt):</strong>
                             <div class="code-block">
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp" -OutFile "hello_world.cpp"
+curl -o hello_world.cpp https://raw.githubusercontent.com/sukrithk829-commits/cpp-programs-website/main/cpp/hello_world.cpp
                             </div>
                         </li>
                         <li><strong>Compile:</strong>
@@ -501,7 +515,7 @@ g++ -o hello hello_world.cpp
                         </li>
                         <li><strong>Run:</strong>
                             <div class="code-block">
-.\hello.exe
+hello.exe
                             </div>
                         </li>
                     </ol>
